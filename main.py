@@ -34,13 +34,13 @@ def main():
 
     # As default: (1,1) is goal cell, (10,10) is start cell
     if choice == 1:
-        bSearch,bfsPath,fwdPath=BFS(m,(height,width))
+        bSearch,bfsPath,fwdPath=BFS(m,(m.start_x,m.start_y))
 
-        a=agent(m,height,width,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
-        b=agent(m,1,1,goal=(height,width),footprints=True,filled=True)
-        c=agent(m,footprints=True,color=COLOR.yellow)
+        a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
+        b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
+        c=agent(m,m.start_x,m.start_y,footprints=True,color=COLOR.yellow)
 
-        m.tracePath({a:bSearch},showMarked=True,delay=100)
+        m.tracePath({a:bSearch},showMarked=True,delay=50)
         m.tracePath({b:bfsPath},delay=50)
         m.tracePath({c:fwdPath},delay=50)
 

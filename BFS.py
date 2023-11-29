@@ -3,7 +3,7 @@ from collections import deque           # double-ended queue, same to linked lis
 
 def BFS(m,start=None):
     if start is None:
-        start=(m.rows,m.cols)
+        start=(m.start_x,m.start_y)
     frontier=deque()
     frontier.append(start)
     explored=[start]
@@ -32,7 +32,7 @@ def BFS(m,start=None):
                 bSearch.append(childCell)
     fwdPath={}
     cell=m._goal
-    while cell!=(m.rows,m.cols):
+    while cell!=(m.start_x,m.start_y):
         fwdPath[bfsPath[cell]]=cell     # Pick value in bfsPath as key of fwdPath, value key of fwdPath as key of bfsPath
         cell=bfsPath[cell]              # Next cell will be start cell  
     return bSearch,bfsPath,fwdPath   
