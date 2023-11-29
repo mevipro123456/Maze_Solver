@@ -15,6 +15,12 @@ def main():
 
     m.CreateMaze(1,1,loopPercent=loops)
 
+    print("\nThe maze goal is as cell (1,1) by default.")
+    print("\nInput your starting cell")
+    m.start_x=int(input("Input x: "))
+    m.start_y=int(input("Input y: "))
+
+
     # print("\nYour height and width value will be the starting cell")
     # print("\nAnd the goal will be (1,1) by default")
 
@@ -40,14 +46,11 @@ def main():
 
         m.run()
     elif choice == 2:
-        start_x = 8
-        start_y = 8
+        dSeacrh,dfsPath,fwdPath=DFS(m,(m.start_x,m.start_y))
 
-        dSeacrh,dfsPath,fwdPath=DFS(m,(start_x,start_y))
-
-        a=agent(m,start_x,start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
-        b=agent(m,1,1,goal=(start_x,start_y),footprints=True,filled=True)
-        c=agent(m,start_x,start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
+        a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
+        b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
+        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
 
         m.tracePath({a:dSeacrh},showMarked=True,delay=100)
         m.tracePath({b:dfsPath},delay=50)
