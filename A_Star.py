@@ -8,7 +8,7 @@ def h(cell1, cell2):
     
 def aStar(m,start=None):
     if start is None:
-        start=(m.rows,m.cols)
+        start=(m.start_x,m.start_y)
     open = PriorityQueue()
     open.put((h(start, m._goal), h(start, m._goal), start))
     aPath = {}

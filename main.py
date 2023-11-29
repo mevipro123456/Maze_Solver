@@ -60,9 +60,9 @@ def main():
     elif choice == 3:
         searchPath,aPath,fwdPath=aStar(m)
 
-        a=agent(m,height,width,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
-        b=agent(m,1,1,goal=(height,width),footprints=True,filled=True)
-        c=agent(m,footprints=True,color=COLOR.yellow)
+        a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
+        b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
+        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
 
         m.tracePath({a:searchPath},showMarked=True,delay=50)
         m.tracePath({b:aPath},delay=50)
@@ -70,6 +70,7 @@ def main():
 
         l=textLabel(m,'A Star Path Length',len(fwdPath)+1)
         l=textLabel(m,'A Star Search Length',len(searchPath))
+        
         m.run() 
     elif choice == 4:
         h1=agent(m,4,4,color=COLOR.red)
