@@ -2,7 +2,7 @@ from pyamaze import maze, agent, COLOR, textLabel
 
 def dijkstra(m,*h,start=None):
     if start is None:
-        start=(m.rows,m.cols)
+        start=(m.start_x,m.start_y)
 
     hurdles=[(i.position,i.cost) for i in h]
 

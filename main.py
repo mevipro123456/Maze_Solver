@@ -70,7 +70,7 @@ def main():
 
         l=textLabel(m,'A Star Path Length',len(fwdPath)+1)
         l=textLabel(m,'A Star Search Length',len(searchPath))
-        
+
         m.run() 
     elif choice == 4:
         h1=agent(m,4,4,color=COLOR.red)
@@ -85,11 +85,12 @@ def main():
         h4.cost=100
         h5.cost=100
 
-        path,c=dijkstra(m,h1,h2,h3,h4,h5,start=(height,width))
+        path,c=dijkstra(m,h1,h2,h3,h4,h5,start=(m.start_x,m.start_y))
         textLabel(m,'Total Cost',c)
 
-        a=agent(m,height,width,color=COLOR.cyan,filled=True,footprints=True)
+        a=agent(m,m.start_x,m.start_y,color=COLOR.cyan,filled=True,footprints=True)
         m.tracePath({a:path},delay=50)
+        start_cell=agent(m,m.start_x,m.start_y,color=COLOR.red, filled=True)
 
         m.run()
     else:
