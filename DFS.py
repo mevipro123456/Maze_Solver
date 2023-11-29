@@ -1,8 +1,8 @@
 from pyamaze import maze, agent, textLabel, COLOR
 
-def DFS(m,start=None):
+def DFS(m,start=(None)):
     if start is None:
-        start=(m.rows,m.cols)
+        start=(m.start_x,m._start_y)
     explored=[start]
     frontier=[start]
     dfsPath={}

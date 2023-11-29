@@ -15,8 +15,8 @@ def main():
 
     m.CreateMaze(1,1,loopPercent=loops)
 
-    print("\nYour height and width value will be the starting cell")
-    print("\nAnd the goal will be (1,1) by default")
+    # print("\nYour height and width value will be the starting cell")
+    # print("\nAnd the goal will be (1,1) by default")
 
     print("\nChoose your algorithm:")
     print("1. BFS (Breadth-First Search)")
@@ -40,11 +40,14 @@ def main():
 
         m.run()
     elif choice == 2:
-        dSeacrh,dfsPath,fwdPath=DFS(m,(height,width))
+        start_x = 8
+        start_y = 8
 
-        a=agent(m,height,width,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
-        b=agent(m,1,1,goal=(height,width),footprints=True,filled=True)
-        c=agent(m,footprints=True,color=COLOR.yellow)
+        dSeacrh,dfsPath,fwdPath=DFS(m,(start_x,start_y))
+
+        a=agent(m,start_x,start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
+        b=agent(m,1,1,goal=(start_x,start_y),footprints=True,filled=True)
+        c=agent(m,start_x,start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
 
         m.tracePath({a:dSeacrh},showMarked=True,delay=100)
         m.tracePath({b:dfsPath},delay=50)
@@ -58,7 +61,7 @@ def main():
         b=agent(m,1,1,goal=(height,width),footprints=True,filled=True)
         c=agent(m,footprints=True,color=COLOR.yellow)
 
-        m.tracePath({a:searchPath},showMarked=True,delay=100)
+        m.tracePath({a:searchPath},showMarked=True,delay=50)
         m.tracePath({b:aPath},delay=50)
         m.tracePath({c:fwdPath},delay=50)
 
