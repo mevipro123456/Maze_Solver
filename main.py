@@ -20,10 +20,8 @@ def main():
     m.start_x=int(input("Input x: "))
     m.start_y=int(input("Input y: "))
 
-
-    # print("\nYour height and width value will be the starting cell")
-    # print("\nAnd the goal will be (1,1) by default")
-
+    start_cell=agent(m,m.start_x,m.start_y,color=COLOR.red, filled=True)
+    
     print("\nChoose your algorithm:")
     print("1. BFS (Breadth-First Search)")
     print("2. DFS (Depth-First Search)")
@@ -38,7 +36,7 @@ def main():
 
         a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
         b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
-        c=agent(m,m.start_x,m.start_y,footprints=True,color=COLOR.yellow)
+        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='arrow',color=COLOR.yellow)
 
         m.tracePath({a:bSearch},showMarked=True,delay=50)
         m.tracePath({b:bfsPath},delay=50)
@@ -50,7 +48,7 @@ def main():
 
         a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
         b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
-        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
+        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='arrow',color=COLOR.yellow)
 
         m.tracePath({a:dSeacrh},showMarked=True,delay=100)
         m.tracePath({b:dfsPath},delay=50)
@@ -62,7 +60,7 @@ def main():
 
         a=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='square',color=COLOR.green)
         b=agent(m,1,1,goal=(m.start_x,m.start_y),footprints=True,filled=True)
-        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,color=COLOR.yellow)
+        c=agent(m,m.start_x,m.start_y,goal=(1,1),footprints=True,shape='arrow',color=COLOR.yellow)
 
         m.tracePath({a:searchPath},showMarked=True,delay=50)
         m.tracePath({b:aPath},delay=50)
